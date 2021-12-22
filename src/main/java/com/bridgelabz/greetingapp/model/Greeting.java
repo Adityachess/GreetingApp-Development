@@ -1,29 +1,48 @@
 package com.bridgelabz.greetingapp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "GREETINGS")
 public class Greeting {
-
-	private String content;
+	@Id
 	private long id;
-
-	public Greeting(long id, String content) {
+	private String message;
+	
+	public Greeting() {
+		super();
+		id = 0;
+		message = "";
+	}
+	
+	
+	public Greeting(long id, String message) {
+		super();
 		this.id = id;
-		this.content = content;
+		this.message = message;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	
+	public long getId() {
+		return id;
 	}
+	
 
-	public String getContent() {
-		return content;
-
+	public String getMessage() {
+		return message;
 	}
+	
 
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 
-	public long getId() {
-		return id;
+	public void setMessage(String message) {
+		this.message = message;
 	}
+	
+
 }
