@@ -10,6 +10,7 @@ public interface IGreetingService {
     String gettingMessageByName(UserDto userDto);
     Greeting findById(long messageId);
     List<Greeting> getMessages();
+    Greeting editMessage(Greeting greeting);
     
 }
 

@@ -43,6 +43,9 @@ public class Greeting {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
+
+
 	
 
 }

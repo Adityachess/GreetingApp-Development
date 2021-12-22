@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.bridgelabz.greetingapp.dto.UserDto;
 import com.bridgelabz.greetingapp.model.Greeting;
+import com.bridgelabz.greetingapp.model.User;
 import com.bridgelabz.greetingapp.service.IGreetingService;
 
 import java.util.List;
@@ -78,5 +79,14 @@ public class GreetingController {
 	@GetMapping("/findall")
 	public List<Greeting>getMessages(){
 		return this.greetingService.getMessages();
+	}
+	
+	/**
+	 * using edit method to edit message
+	 */
+	
+	@PutMapping("/editmsg")
+	public Greeting editMessage(Greeting greeting) {
+		return this.greetingService.editMessage(greeting);
 	}
 }
