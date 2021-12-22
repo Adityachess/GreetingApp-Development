@@ -6,6 +6,7 @@ import com.bridgelabz.greetingapp.model.Greeting;
 public interface IGreetingService {
     Greeting greetingMessage();
     String gettingMessageByName(UserDto userDto);
+    Greeting findById(long messageId);
     
 }
 

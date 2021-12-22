@@ -59,4 +59,14 @@ public class GreetingController {
 		return greetingService.gettingMessageByName(userDto);
 
 	}
+	/**
+	 * finding the data by using messageId
+	 * @param messageId
+	 * @return
+	 */
+
+	@GetMapping("/service/{messageId}")
+	public Greeting findById(@PathVariable String messageId) {
+		return this.greetingService.findById(Long.parseLong(messageId));
+	}
 }

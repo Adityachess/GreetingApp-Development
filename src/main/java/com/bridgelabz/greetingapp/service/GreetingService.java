@@ -21,14 +21,14 @@ public class GreetingService implements IGreetingService {
 	 private final AtomicLong counter = new AtomicLong();
 	 
 	 @Autowired
-	 private IGreetingRepository greetingService;
+	 private IGreetingRepository greetingRepository;
 	 
 	 /**
 	  * Call method to save the message in the repository
 	  */
 	 @Override
 	 public Greeting greetingMessage() {
-		 return greetingService.save(new Greeting(counter.incrementAndGet(), String.format(template)));
+		 return greetingRepository.save(new Greeting(counter.incrementAndGet(), String.format(template)));
 	 }
 	 
 	 @Override
@@ -38,6 +38,11 @@ public class GreetingService implements IGreetingService {
 		 modelMapper.map(userDto, user);
 		 return ("Hello" +" "+ user.getFirstName() + " " + user.getLastName()+"...");
 	}
+	 
+	 @Override
+		public Greeting findById(long messageId) {
+			return greetingRepository.findById(messageId).get();
+		}
 	 
 	
 	
