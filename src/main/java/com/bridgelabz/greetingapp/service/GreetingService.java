@@ -9,6 +9,7 @@ import com.bridgelabz.greetingapp.model.Greeting;
 import com.bridgelabz.greetingapp.model.User;
 import com.bridgelabz.greetingapp.repository.IGreetingRepository;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 
@@ -42,6 +43,14 @@ public class GreetingService implements IGreetingService {
 	 @Override
 		public Greeting findById(long messageId) {
 			return greetingRepository.findById(messageId).get();
+		}
+	 
+	 /**
+		 * using find all method to list all the messages
+		 */
+		@Override
+		public List<Greeting> getMessages() {
+			return greetingRepository.findAll();
 		}
 	 
 	

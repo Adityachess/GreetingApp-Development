@@ -8,6 +8,7 @@ import com.bridgelabz.greetingapp.dto.UserDto;
 import com.bridgelabz.greetingapp.model.Greeting;
 import com.bridgelabz.greetingapp.service.IGreetingService;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
@@ -59,6 +60,7 @@ public class GreetingController {
 		return greetingService.gettingMessageByName(userDto);
 
 	}
+	
 	/**
 	 * finding the data by using messageId
 	 * @param messageId
@@ -68,5 +70,13 @@ public class GreetingController {
 	@GetMapping("/service/{messageId}")
 	public Greeting findById(@PathVariable String messageId) {
 		return this.greetingService.findById(Long.parseLong(messageId));
+	}
+	
+	/**
+	 * using findAll method to list all the messages
+	 */
+	@GetMapping("/findall")
+	public List<Greeting>getMessages(){
+		return this.greetingService.getMessages();
 	}
 }
