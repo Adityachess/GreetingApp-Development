@@ -59,5 +59,15 @@ public class GreetingService implements IGreetingService {
 	public Greeting editMessage(Greeting greeting) {
 		return greetingRepository.save(new Greeting(2,"Hello Aditya"));
 	}
+	
+	   @Override
+	    public String deleteGreetMessage(long id) {
+	        Optional<Greeting> greetingMessage = greetingRepository.findById(id);
+	        if (greetingMessage.isPresent()) {
+	            greetingRepository.delete(greetingMessage.get());
+	            return "Record Deleted";
+	        }
+	        return "Record not available";
+	    }
 
 }
